@@ -1,0 +1,7 @@
+item,value
+rows,2830743
+columns,79
+numeric_features,78
+categorical_non_target_features,0
+target_column,Label
+unique_target_labels,15

@@ -1,0 +1,5 @@
+data/raw/*.csv
+data/raw/*.zip
+data/processed/*.csv
+.venv
+.venv-1

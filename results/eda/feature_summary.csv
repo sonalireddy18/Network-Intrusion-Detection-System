@@ -1,0 +1,80 @@
+feature,dtype,missing_values,missing_percent
+Destination Port,int64,0,0.0
+Flow Duration,int64,0,0.0
+Total Fwd Packets,int64,0,0.0
+Total Backward Packets,int64,0,0.0
+Total Length of Fwd Packets,int64,0,0.0
+Total Length of Bwd Packets,int64,0,0.0
+Fwd Packet Length Max,int64,0,0.0
+Fwd Packet Length Min,int64,0,0.0
+Fwd Packet Length Mean,float64,0,0.0
+Fwd Packet Length Std,float64,0,0.0
+Bwd Packet Length Max,int64,0,0.0
+Bwd Packet Length Min,int64,0,0.0
+Bwd Packet Length Mean,float64,0,0.0
+Bwd Packet Length Std,float64,0,0.0
+Flow Bytes/s,float64,1358,0.048
+Flow Packets/s,float64,0,0.0
+Flow IAT Mean,float64,0,0.0
+Flow IAT Std,float64,0,0.0
+Flow IAT Max,int64,0,0.0
+Flow IAT Min,int64,0,0.0
+Fwd IAT Total,int64,0,0.0
+Fwd IAT Mean,float64,0,0.0
+Fwd IAT Std,float64,0,0.0
+Fwd IAT Max,int64,0,0.0
+Fwd IAT Min,int64,0,0.0
+Bwd IAT Total,int64,0,0.0
+Bwd IAT Mean,float64,0,0.0
+Bwd IAT Std,float64,0,0.0
+Bwd IAT Max,int64,0,0.0
+Bwd IAT Min,int64,0,0.0
+Fwd PSH Flags,int64,0,0.0
+Bwd PSH Flags,int64,0,0.0
+Fwd URG Flags,int64,0,0.0
+Bwd URG Flags,int64,0,0.0
+Fwd Header Length,int64,0,0.0
+Bwd Header Length,int64,0,0.0
+Fwd Packets/s,float64,0,0.0
+Bwd Packets/s,float64,0,0.0
+Min Packet Length,int64,0,0.0
+Max Packet Length,int64,0,0.0
+Packet Length Mean,float64,0,0.0
+Packet Length Std,float64,0,0.0
+Packet Length Variance,float64,0,0.0
+FIN Flag Count,int64,0,0.0
+SYN Flag Count,int64,0,0.0
+RST Flag Count,int64,0,0.0
+PSH Flag Count,int64,0,0.0
+ACK Flag Count,int64,0,0.0
+URG Flag Count,int64,0,0.0
+CWE Flag Count,int64,0,0.0
+ECE Flag Count,int64,0,0.0
+Down/Up Ratio,int64,0,0.0
+Average Packet Size,float64,0,0.0
+Avg Fwd Segment Size,float64,0,0.0
+Avg Bwd Segment Size,float64,0,0.0
+Fwd Header Length.1,int64,0,0.0
+Fwd Avg Bytes/Bulk,int64,0,0.0
+Fwd Avg Packets/Bulk,int64,0,0.0
+Fwd Avg Bulk Rate,int64,0,0.0
+Bwd Avg Bytes/Bulk,int64,0,0.0
+Bwd Avg Packets/Bulk,int64,0,0.0
+Bwd Avg Bulk Rate,int64,0,0.0
+Subflow Fwd Packets,int64,0,0.0
+Subflow Fwd Bytes,int64,0,0.0
+Subflow Bwd Packets,int64,0,0.0
+Subflow Bwd Bytes,int64,0,0.0
+Init_Win_bytes_forward,int64,0,0.0
+Init_Win_bytes_backward,int64,0,0.0
+act_data_pkt_fwd,int64,0,0.0
+min_seg_size_forward,int64,0,0.0
+Active Mean,float64,0,0.0
+Active Std,float64,0,0.0
+Active Max,int64,0,0.0
+Active Min,int64,0,0.0
+Idle Mean,float64,0,0.0
+Idle Std,float64,0,0.0
+Idle Max,int64,0,0.0
+Idle Min,int64,0,0.0
+Label,string,0,0.0

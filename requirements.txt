@@ -1,6 +1,7 @@
-pandas
-numpy
-scikit-learn
-matplotlib
-seaborn
-joblib
+pandas>=2.2
+numpy>=1.26
+matplotlib>=3.8
+seaborn>=0.13
+scikit-learn>=1.5
+jupyter>=1.0
+openpyxl>=3.1

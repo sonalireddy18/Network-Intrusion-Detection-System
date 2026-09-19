@@ -1,0 +1,8 @@
+CICIDS2017 Week 2 Data Quality Report
+=============================================
+Rows: 2,830,743
+Columns: 79
+Duplicate rows: 308,381
+Rows with missing target label: 0
+Total missing cells: 1,358
+Total infinite numeric cells: 4,376
