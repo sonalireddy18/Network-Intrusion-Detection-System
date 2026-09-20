@@ -12,7 +12,7 @@ before Week 3 preprocessing/model development.
 """
 
 from pathlib import Path
-import re
+import rep
 import time
 import numpy as np
 import pandas as pd
@@ -27,6 +27,8 @@ OUT_DIR.mkdir(parents=True, exist_ok=True)
 # CICIDS2017's target column is normally "Label", sometimes with whitespace.
 LABEL_CANDIDATES = {"label", " Label", "Label"}
 
+
+#1
 #---------------------------------------------------------------
 def clean_column_names(columns):
     """Strip whitespace and remove duplicate column names safely."""
@@ -39,7 +41,7 @@ def clean_column_names(columns):
         seen[c] = n + 1
     return result
 
-
+#2
 #---------------------------------------------------------------
 def find_label_column(columns):
     for c in columns:
@@ -50,12 +52,12 @@ def find_label_column(columns):
         f"Columns found: {list(columns)[:20]}"
     )
 
-
+#3
 #---------------------------------------------------------------
 def numeric_columns(df):
     return df.select_dtypes(include=[np.number]).columns.tolist()
 
-
+#4
 #---------------------------------------------------------------
 def safe_numeric(df):
     """Convert numeric-looking columns to numeric without touching Label."""
@@ -66,7 +68,7 @@ def safe_numeric(df):
             out[c] = pd.to_numeric(out[c], errors="coerce")
     return out
 
-
+#5
 #---------------------------------------------------------------
 def load_cicids():
     files = sorted(RAW_DIR.glob("*.csv"))
@@ -88,6 +90,7 @@ def load_cicids():
     data = safe_numeric(data)
     return data
 
+#6
 #---------------------------------------------------------------
 def basic_summary(df):
     label = find_label_column(df.columns)
@@ -126,7 +129,7 @@ def basic_summary(df):
     print(f"Target: {label}")
     return label
 
-
+#7
 #---------------------------------------------------------------
 def label_distribution(df, label):
     counts = (
@@ -154,7 +157,7 @@ def label_distribution(df, label):
     print(counts.to_string(index=False))
     return counts
 
-
+#8
 #---------------------------------------------------------------
 def data_quality(df, label):
     # Infinite values are only meaningful for numeric columns.
@@ -193,7 +196,7 @@ def data_quality(df, label):
     print(f"Infinite numeric cells: {int(np.isinf(df[nums]).sum().sum()):,}")
     return quality
 
-
+#9
 #---------------------------------------------------------------
 def feature_eda(df, label):
     nums = numeric_columns(df.drop(columns=[label]))
@@ -243,7 +246,7 @@ def feature_eda(df, label):
         plt.savefig(OUT_DIR / f"distribution_{safe}.png", dpi=160)
         plt.close()
 
-
+#10
 #---------------------------------------------------------------
 def main():
     start = time.time()
