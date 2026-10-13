@@ -1,5 +1,15 @@
 data/raw/*.csv
 data/raw/*.zip
-data/processed/*.csv
+
 .venv
 .venv-1
+# Processed datasets (distribute via shared drive or local run)
+data/processed/*.parquet
+data/processed/*.csv
+
+# Serialized scalers and encoders
+data/processed/*.joblib
+
+# Python bytecode
+__pycache__/
+*.pyc
