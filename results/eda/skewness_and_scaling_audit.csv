@@ -1,0 +1,26 @@
+Feature_Name,Skewness,Severity,Impact_on_Autoencoder,Recommended_Transform
+Total Length of Fwd Packets,614.3936,Extreme,Causes MinMax normalization to collapse 99% of flows into near-zero space,log1p [log(1 + x)] transformation prior to MinMaxScaler
+Subflow Fwd Bytes,614.0257,Extreme,Causes MinMax normalization to collapse 99% of flows into near-zero space,log1p [log(1 + x)] transformation prior to MinMaxScaler
+act_data_pkt_fwd,293.7692,Extreme,Causes MinMax normalization to collapse 99% of flows into near-zero space,log1p [log(1 + x)] transformation prior to MinMaxScaler
+Total Backward Packets,271.982,Extreme,Causes MinMax normalization to collapse 99% of flows into near-zero space,log1p [log(1 + x)] transformation prior to MinMaxScaler
+Subflow Bwd Packets,271.982,Extreme,Causes MinMax normalization to collapse 99% of flows into near-zero space,log1p [log(1 + x)] transformation prior to MinMaxScaler
+Subflow Bwd Bytes,270.2239,Extreme,Causes MinMax normalization to collapse 99% of flows into near-zero space,log1p [log(1 + x)] transformation prior to MinMaxScaler
+Total Length of Bwd Packets,270.2197,Extreme,Causes MinMax normalization to collapse 99% of flows into near-zero space,log1p [log(1 + x)] transformation prior to MinMaxScaler
+Total Fwd Packets,270.0658,Extreme,Causes MinMax normalization to collapse 99% of flows into near-zero space,log1p [log(1 + x)] transformation prior to MinMaxScaler
+Subflow Fwd Packets,270.0658,Extreme,Causes MinMax normalization to collapse 99% of flows into near-zero space,log1p [log(1 + x)] transformation prior to MinMaxScaler
+Fwd URG Flags,87.689,Extreme,Causes MinMax normalization to collapse 99% of flows into near-zero space,log1p [log(1 + x)] transformation prior to MinMaxScaler
+CWE Flag Count,87.689,Extreme,Causes MinMax normalization to collapse 99% of flows into near-zero space,log1p [log(1 + x)] transformation prior to MinMaxScaler
+ECE Flag Count,69.3161,Extreme,Causes MinMax normalization to collapse 99% of flows into near-zero space,log1p [log(1 + x)] transformation prior to MinMaxScaler
+RST Flag Count,69.3161,Extreme,Causes MinMax normalization to collapse 99% of flows into near-zero space,log1p [log(1 + x)] transformation prior to MinMaxScaler
+Active Std,48.6875,High,Causes MinMax normalization to collapse 99% of flows into near-zero space,log1p [log(1 + x)] transformation prior to MinMaxScaler
+Active Min,41.6691,High,Causes MinMax normalization to collapse 99% of flows into near-zero space,log1p [log(1 + x)] transformation prior to MinMaxScaler
+Active Mean,34.0101,High,Causes MinMax normalization to collapse 99% of flows into near-zero space,log1p [log(1 + x)] transformation prior to MinMaxScaler
+Active Max,23.9353,High,Causes MinMax normalization to collapse 99% of flows into near-zero space,log1p [log(1 + x)] transformation prior to MinMaxScaler
+Flow IAT Min,23.7547,High,Causes MinMax normalization to collapse 99% of flows into near-zero space,log1p [log(1 + x)] transformation prior to MinMaxScaler
+Bwd Packets/s,21.0959,High,Causes MinMax normalization to collapse 99% of flows into near-zero space,log1p [log(1 + x)] transformation prior to MinMaxScaler
+Fwd Packet Length Min,20.1063,High,Causes MinMax normalization to collapse 99% of flows into near-zero space,log1p [log(1 + x)] transformation prior to MinMaxScaler
+Down/Up Ratio,11.2934,High,Causes MinMax normalization to collapse 99% of flows into near-zero space,log1p [log(1 + x)] transformation prior to MinMaxScaler
+Idle Std,10.5146,High,Causes MinMax normalization to collapse 99% of flows into near-zero space,log1p [log(1 + x)] transformation prior to MinMaxScaler
+Fwd Packet Length Std,10.4717,High,Causes MinMax normalization to collapse 99% of flows into near-zero space,log1p [log(1 + x)] transformation prior to MinMaxScaler
+Min Packet Length,10.169,High,Causes MinMax normalization to collapse 99% of flows into near-zero space,log1p [log(1 + x)] transformation prior to MinMaxScaler
+Bwd IAT Min,10.0051,High,Causes MinMax normalization to collapse 99% of flows into near-zero space,log1p [log(1 + x)] transformation prior to MinMaxScaler

@@ -1,7 +1,16 @@
-item,value
-rows,2830743
-columns,79
-numeric_features,78
-categorical_non_target_features,0
-target_column,Label
-unique_target_labels,15
+Metric,Value
+Total Ingested Flows,"2,830,743"
+Total Features / Columns,78
+Numeric Traffic Features,77
+Target Feature Name,Label
+Unique Traffic Classes,15
+Normal (BENIGN) Flows,"2,273,097"
+Total Malicious (Attack) Flows,"557,646"
+Benign-to-Attack Ratio,4.08 : 1
+Raw Duplicate Records,"308,381"
+Duplicate Percentage (%),10.89%
+Missing Target (Label) Values,0
+Total Missing Feature Cells,"1,358"
+Total Infinite (±Inf) Cells,"4,376"
+Zero-Variance Features Count,8
+Data Leakage Identifier Columns,1

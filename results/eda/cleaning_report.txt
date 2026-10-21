@@ -1,8 +1,57 @@
-CICIDS2017 Week 2 Data Quality Report
-=============================================
-Rows: 2,830,743
-Columns: 79
-Duplicate rows: 308,381
-Rows with missing target label: 0
-Total missing cells: 1,358
-Total infinite numeric cells: 4,376
+================================================================================
+               CICIDS2017 DATA QUALITY & EXPLORATORY AUDIT REPORT              
+     A Comparative Study & Hybrid Framework for Network Intrusion Detection    
+================================================================================
+Execution Timestamp:            2026-10-20 17:08:08
+Total Network Flow Records:     2,830,743
+Total Ingested Attributes:      78
+Raw Duplicate Flow Records:     308,381 (10.89%)
+Missing Target (Label) Values:  0
+Total Missing Feature Cells:    1,358
+Total Infinite (±Inf) Cells:    4,376
+--------------------------------------------------------------------------------
+1. IDENTIFIER & DATA LEAKAGE AUDIT (Sarhan et al., 2022 Criteria):
+   Identified 1 socket metadata and timestamp features:
+     - Destination Port
+   Justification: IPs, Ports, and Timestamps allow classifiers to overfit to
+   specific network environments rather than learning transport behaviors.
+--------------------------------------------------------------------------------
+2. ZERO-VARIANCE & CONSTANT FEATURE AUDIT:
+   Identified 8 features with nunique <= 1 across all flows:
+     - Bwd PSH Flags
+     - Bwd URG Flags
+     - Fwd Avg Bytes/Bulk
+     - Fwd Avg Packets/Bulk
+     - Fwd Avg Bulk Rate
+     - Bwd Avg Bytes/Bulk
+     - Bwd Avg Packets/Bulk
+     - Bwd Avg Bulk Rate
+   Recommendation: Drop completely during Phase 3 to conserve memory and
+   eliminate non-informative inputs to tree-based and neural models.
+--------------------------------------------------------------------------------
+3. CLASS IMBALANCE & MINORITY ATTACKS AUDIT:
+   Total Distinct Traffic Classes: 15
+   Minority Attack Classes (< 1,000 samples):
+     - Web Attack - XSS: 652 flows (0.0230%)
+     - Infiltration: 36 flows (0.0013%)
+     - Web Attack - Sql Injection: 21 flows (0.0007%)
+     - Heartbleed: 11 flows (0.0004%)
+   Action: Classes like Web Attack (XSS, SQL Injection) must be consolidated
+   to ensure sufficient representation across train, validation, and test splits.
+--------------------------------------------------------------------------------
+4. FEATURE DISTRIBUTION SKEWNESS (Autoencoder Normalization Justification):
+   Detected 25 features exhibiting extreme positive skewness (> 10.0).
+   Top 5 heavily skewed features:
+     - Total Length of Fwd Packets: skewness = 614.39
+     - Subflow Fwd Bytes: skewness = 614.03
+     - act_data_pkt_fwd: skewness = 293.77
+     - Total Backward Packets: skewness = 271.98
+     - Subflow Bwd Packets: skewness = 271.98
+   Justification: Confirms that standard MinMax scaling squashes data into
+   near-zero ranges, establishing why log1p transformation is required for
+   stable Autoencoder reconstruction loss.
+--------------------------------------------------------------------------------
+5. OBJECTIVE 4 ZERO-DAY / HELD-OUT AUDIT (PortScan Isolation):
+   Total PortScan flows detected: 158,930 (5.61%)
+   Status: Successfully profiled for complete hold-out during data partitioning.
+================================================================================

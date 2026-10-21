@@ -1,0 +1,9 @@
+Feature_Name,Unique_Values,Reason
+Bwd PSH Flags,1,Constant feature with zero variance; imparts zero predictive gain to ML models
+Bwd URG Flags,1,Constant feature with zero variance; imparts zero predictive gain to ML models
+Fwd Avg Bytes/Bulk,1,Constant feature with zero variance; imparts zero predictive gain to ML models
+Fwd Avg Packets/Bulk,1,Constant feature with zero variance; imparts zero predictive gain to ML models
+Fwd Avg Bulk Rate,1,Constant feature with zero variance; imparts zero predictive gain to ML models
+Bwd Avg Bytes/Bulk,1,Constant feature with zero variance; imparts zero predictive gain to ML models
+Bwd Avg Packets/Bulk,1,Constant feature with zero variance; imparts zero predictive gain to ML models
+Bwd Avg Bulk Rate,1,Constant feature with zero variance; imparts zero predictive gain to ML models

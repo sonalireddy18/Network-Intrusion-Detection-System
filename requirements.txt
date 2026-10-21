@@ -8,7 +8,7 @@ joblib>=1.3.0
 
 # Visualization & Interactive Notebooks
 matplotlib>=3.8.0
-seaborn>=0.13.0git 
+seaborn>=0.13.0
 jupyter>=1.0.0
 
 # Supervised & Anomaly Detection Models (M1, M2, M3)
@@ -16,7 +16,7 @@ scikit-learn>=1.5.0
 # xgboost>=2.0.0
 
 # Deep Learning Anomaly Detector (Member 4: Deep Autoencoder)
-# tensorflow>=2.16.0
+ tensorflow>=2.16.0
 
 # Explainability & Dashboard (Phase 7 & Phase 8)
 # shap>=0.45.0

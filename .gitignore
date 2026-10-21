@@ -1,11 +1,13 @@
 data/raw/*.csv
 data/raw/*.zip
-
+main.py
+run_eda.py
 .venv
 .venv-1
 # Processed datasets (distribute via shared drive or local run)
 data/processed/*.parquet
 data/processed/*.csv
+data/processed/*
 
 # Serialized scalers and encoders
 data/processed/*.joblib

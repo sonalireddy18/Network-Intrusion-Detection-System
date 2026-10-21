@@ -1,7 +1,3 @@
-"""
-scaling.py - Feature Normalization & Serialization
-Primary Owner: Member 4 (Deep Autoencoder Lead)
-"""
 import json
 from pathlib import Path
 from typing import Tuple, List, Optional
@@ -12,9 +8,27 @@ from sklearn.preprocessing import MinMaxScaler
 
 
 def get_feature_columns(df: pd.DataFrame, label_col: str) -> List[str]:
-    """Retrieve all numeric feature columns, excluding the target."""
-    num_cols = df.select_dtypes(include=[np.number]).columns.tolist()
-    return [c for c in num_cols if c != label_col]
+    """Retrieve all numeric feature columns excluding the target."""
+    return [c for c in df.select_dtypes(include=[np.number]).columns.tolist() if c != label_col]
+
+
+def get_log_columns(X_train: pd.DataFrame) -> List[str]:
+    """Columns safe for log1p: non-negative in train (skips e.g. Init_Win_bytes_* which contain -1)."""
+    return [c for c in X_train.columns if X_train[c].min() >= 0]
+
+
+def apply_log1p(X: pd.DataFrame, log_cols: List[str]) -> pd.DataFrame:
+    """log1p on heavy-tailed columns. Lower-clips at 0 so unseen negatives can't produce NaN."""
+    X = X.copy()
+    X[log_cols] = np.log1p(X[log_cols].clip(lower=0))
+    return X
+
+
+def _transform(scaler: MinMaxScaler, X: pd.DataFrame, clip: bool) -> pd.DataFrame:
+    arr = scaler.transform(X)
+    if clip:
+        arr = np.clip(arr, 0.0, 1.0)
+    return pd.DataFrame(arr.astype("float32"), columns=X.columns, index=X.index)
 
 
 def fit_and_scale_splits(
@@ -22,40 +36,24 @@ def fit_and_scale_splits(
     X_val: pd.DataFrame,
     X_test: pd.DataFrame,
     scaler_save_path: Optional[Path] = None,
-    features_save_path: Optional[Path] = None
+    features_save_path: Optional[Path] = None,
+    clip: bool = True,
 ) -> Tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, MinMaxScaler]:
-    """
-    Fits MinMaxScaler strictly on X_train to prevent leakage.
-    Scales and clips features to [0, 1] for neural network stability.
-    """
+    """Fits MinMaxScaler strictly on X_train to prevent leakage."""
     scaler = MinMaxScaler(feature_range=(0, 1))
-    
-    # Fit exclusively on training data
     scaler.fit(X_train)
-    
-    feature_cols = X_train.columns.tolist()
 
-    X_train_scaled = pd.DataFrame(
-        np.clip(scaler.transform(X_train), 0.0, 1.0),
-        columns=feature_cols,
-        index=X_train.index
-    )
-    X_val_scaled = pd.DataFrame(
-        np.clip(scaler.transform(X_val), 0.0, 1.0),
-        columns=feature_cols,
-        index=X_val.index
-    )
-    X_test_scaled = pd.DataFrame(
-        np.clip(scaler.transform(X_test), 0.0, 1.0),
-        columns=feature_cols,
-        index=X_test.index
-    )
+    X_train_scaled = _transform(scaler, X_train, clip)
+    X_val_scaled = _transform(scaler, X_val, clip)
+    X_test_scaled = _transform(scaler, X_test, clip)
+
+    feature_cols = X_train.columns.tolist()
 
     if scaler_save_path:
         scaler_save_path = Path(scaler_save_path)
         scaler_save_path.parent.mkdir(parents=True, exist_ok=True)
         joblib.dump(scaler, scaler_save_path)
-        print(f"[Scaling] Fitted scaler saved to: {scaler_save_path}")
+        print(f"[Scaling] Scaler saved to: {scaler_save_path}")
 
     if features_save_path:
         features_save_path = Path(features_save_path)
@@ -70,8 +68,8 @@ def fit_and_scale_splits(
 def scale_external_data(
     X_df: pd.DataFrame,
     scaler: MinMaxScaler,
-    feature_cols: List[str]
+    feature_cols: List[str],
+    clip: bool = True,
 ) -> pd.DataFrame:
-    """Transforms unseen evaluation subsets (e.g., held-out attack) using the pre-fitted scaler."""
-    scaled = np.clip(scaler.transform(X_df[feature_cols]), 0.0, 1.0)
-    return pd.DataFrame(scaled, columns=feature_cols, index=X_df.index)
+    """Transforms unseen evaluation subsets (e.g., held-out attack) using the fitted scaler."""
+    return _transform(scaler, X_df[feature_cols], clip)
