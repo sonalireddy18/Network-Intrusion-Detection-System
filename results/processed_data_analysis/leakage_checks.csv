@@ -1,0 +1,11 @@
+check,value
+duplicate rows inside train_supervised,24733
+duplicate rows inside val_supervised,901
+duplicate rows inside test_supervised,834
+rows of val_supervised also present in train_supervised,80
+rows of test_supervised also present in train_supervised,84
+rows of test_supervised also present in val_supervised,20
+holdout labels ['Bot'] present in train,1
+train_supervised: mean |column mean| / mean column std,0.2601 / 0.2093
+val_supervised: mean |column mean| / mean column std,0.2624 / 0.2107
+test_supervised: mean |column mean| / mean column std,0.2626 / 0.2112

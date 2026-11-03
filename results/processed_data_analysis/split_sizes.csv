@@ -1,0 +1,8 @@
+set,group,rows,features,file_MB,percent_of_group
+train_supervised,supervised,1538478,69,182.6,70.7
+val_supervised,supervised,319674,69,39.5,14.69
+test_supervised,supervised,317953,69,39.4,14.61
+train_anomaly_benign,anomaly,1304306,69,151.3,67.17
+val_anomaly,anomaly,319674,69,39.5,16.46
+test_anomaly,anomaly,317953,69,39.4,16.37
+heldout_portscan,holdout,1958,69,0.2,100.0

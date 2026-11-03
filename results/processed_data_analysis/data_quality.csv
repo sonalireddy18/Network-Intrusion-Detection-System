@@ -1,0 +1,15 @@
+version,set,NaN,inf,constant_cols,min,max
+no_log1p,train_supervised,0,0,0,0.0,1.0
+no_log1p,val_supervised,0,0,0,0.0,1.0
+no_log1p,test_supervised,0,0,0,0.0,1.0
+no_log1p,train_anomaly_benign,0,0,0,0.0,1.0
+no_log1p,val_anomaly,0,0,0,0.0,1.0
+no_log1p,test_anomaly,0,0,0,0.0,1.0
+no_log1p,heldout_portscan,0,0,8,0.0,1.0
+log1p,train_supervised,0,0,0,0.0,1.0
+log1p,val_supervised,0,0,0,0.0,1.0
+log1p,test_supervised,0,0,0,0.0,1.0
+log1p,train_anomaly_benign,0,0,0,0.0,1.0
+log1p,val_anomaly,0,0,0,0.0,1.0
+log1p,test_anomaly,0,0,0,0.0,1.0
+log1p,heldout_portscan,0,0,8,0.0,1.0

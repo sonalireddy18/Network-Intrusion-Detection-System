@@ -1,0 +1,6 @@
+,csv,parquet,csv_over_parquet
+file_size_MB,281.372,60.206,4.67
+write_time_s,25.869,2.357,10.98
+read_all_columns_s,4.258,0.15,28.39
+read_10_columns_s,2.433,0.041,59.34
+memory_after_load_MB,272.0,140.0,1.94

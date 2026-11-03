@@ -1,0 +1,16 @@
+{
+    "variant": "log1p",
+    "seed": 43,
+    "input_dim": 68,
+    "best_latent_dim": 16,
+    "calibrated_threshold": 0.0006348227034322917,
+    "val_roc_auc": 0.9700117224189791,
+    "val_f1": 0.808029225752731,
+    "train_time_sec": 861.3590748310089,
+    "epochs_run": 50,
+    "max_epochs": 50,
+    "final_val_loss": 0.00014644142356701195,
+    "param_count": 14868,
+    "benign_train_error_p95": 0.0005251554539427161,
+    "benign_train_error_p99": 0.0015286225825548172
+}

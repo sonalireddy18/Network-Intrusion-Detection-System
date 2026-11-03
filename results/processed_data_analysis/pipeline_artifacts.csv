@@ -1,0 +1,8 @@
+item,value
+features (no-log1p version),68
+features (log1p version),68
+columns transformed with log1p,56
+twin_drop_index entries,2
+classes in label_mapping,12
+scaler type,MinMaxScaler
+scaler n_features_in_,68

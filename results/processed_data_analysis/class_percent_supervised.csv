@@ -1,0 +1,13 @@
+Label,train_supervised,val_supervised,test_supervised
+BENIGN,84.779,84.303,84.218
+DoS Hulk,7.865,8.11,8.155
+DDoS,5.825,6.007,6.04
+DoS GoldenEye,0.468,0.482,0.485
+FTP-Patator,0.27,0.278,0.28
+DoS slowloris,0.245,0.252,0.253
+DoS Slowhttptest,0.238,0.245,0.247
+SSH-Patator,0.146,0.151,0.152
+Web Attack,0.097,0.101,0.101
+Bot,0.066,0.068,0.068
+Infiltration,0.002,0.002,0.002
+Heartbleed,0.001,0.001,0.0
